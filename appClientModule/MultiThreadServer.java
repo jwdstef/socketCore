@@ -671,6 +671,7 @@ class Handler implements Runnable{
         	System.out.println(addr+"-断开连接，更新成功---");
         }finally{
             try {
+            		System.out.println("分支合并测试");
             		updateState("1",strs);
                 	socket.close();
                 	System.out.println("socket.isClosed()"+socket.isClosed());

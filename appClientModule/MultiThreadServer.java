@@ -668,7 +668,7 @@ class Handler implements Runnable{
             }
         } catch (IOException e) {
         	updateState("1",strs);
-        	System.out.println(addr+"-断开连接，更新成功---");
+        	System.out.println(addr+"-断开连接，更新成功-");
         }finally{
             try {
             		System.out.println("分支合并测试");

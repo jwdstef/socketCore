@@ -267,7 +267,7 @@ class Handler implements Runnable{
 
 		} catch (Exception e) {
 			//e.printStackTrace();;
-			System.out.println("MYSQL INFO:" + e.getMessage());
+			//System.out.println("MYSQL INFO:" + e.getMessage());
 		}
     	return baseCode;
     }
@@ -568,9 +568,9 @@ class Handler implements Runnable{
     
     public void updateData(Map<String,String> data){
     	Long start = System.currentTimeMillis();
+    	//唯一标识编号线+塔+点
+    	String baseCode = data.get("lineCode")+"_"+data.get("towerCode")+"_"+data.get("pointCode");
 		try {
-			//唯一标识编号线+塔+点
-   			String baseCode = data.get("lineCode")+"_"+data.get("towerCode")+"_"+data.get("pointCode");
    			Connection cons = myBroker.getConnection(); 
 			String sql = "UPDATE fl_data  SET iflag='2' where iflag='1' and type=? and tsort=? and base_code=?"; 
 			PreparedStatement pstmt = cons.prepareStatement(sql);  
@@ -584,7 +584,7 @@ class Handler implements Runnable{
 			//e.printStackTrace();;
 		}
 		Long end = System.currentTimeMillis(); 
-        System.out.println("单条执行----------->共耗时：" + (end - start) / 1000f + "----毫秒！");
+        System.out.println("单条执行---->共耗时：" + (end - start) / 1000f + "--毫秒！站点--》"+baseCode+"--状态值:"+data.get("position_flag"));
 }
     
     public void insertLocalInfo(Map<String,String> data){
@@ -671,7 +671,7 @@ class Handler implements Runnable{
         	System.out.println(addr+"-断开连接，更新成功");
         }finally{
             try {
-            		//updateState("1",strs);
+            		updateState("1",strs);
                 	socket.close();
                 	System.out.println("socket.isClosed()"+socket.isClosed());
             } catch (IOException e) {

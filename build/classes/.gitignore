@@ -1,15 +1,12 @@
-/CRC16.class
-/CRC17.class
+/PropertiesUtil.java
 /CoderUtils.class
 /CrcUtil.class
 /DbConnectionBroker.class
 /Handler.class
 /LngLatUtil.class
-/META-INF/
 /Main.class
 /MathExt.class
 /MultiThreadServer.class
 /Native2AsciiUtils.class
 /PropertiesUtil.class
 /StringUtil.class
-/config.properties
